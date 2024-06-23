@@ -1,0 +1,245 @@
+@(title:String, designatedDate:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/kakeibo.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/kakeibo.js")" type="text/javascript"></script>
+}
+
+@modal={
+  <!-- 家計簿モーダル -->
+  <div id="kakeibo-modal">
+    <!-- 項目合計算出モーダル -->
+    <div id="sum-calc-modal" class="sum-calc-content">
+      <!-- ヘッダーエリア -->
+      <div class="sum-calc-header-area">
+        <!-- タイトル -->
+        <p class="sum-calc-header-title"> - 項目合計算出 - </p>
+        <!-- 「年月」選択 -->
+        <div class="sum-calc-select-block">
+          <span id="sam-calc-year" class="sam-calc-year"></span>
+          <select name="sum-calc-month" id="sum-calc-month">
+            @for(i <- 1 to 12){
+              @if(i < 10) {
+                <option value="@i">0@i</option>
+              } else {
+                <option value="@i">@i</option>
+              }
+            }
+          </select>
+          <span>月</span>
+        </div>
+        <!-- 検索ボタン -->
+        <div class="sum-calc-search-block">
+          <button id="sum-calc-search-btn" class="sum-calc-search-btn">検索</button>
+        </div>
+        <!-- 全て選択 -->
+        <div class="sum-calc-all-select">
+          <label class="sum-calc-all-label">
+            <input type="checkbox" class="sam-calc-all-check" name="sam-calc-all-check" onchange="samCalcAllCheckIconChange()" value="">
+            <img id="sam-calc-all-check-on" src="@routes.Assets.versioned("images/kakeibooPc/check_on.png")">
+            <img id="sam-calc-all-check-off" src="@routes.Assets.versioned("images/kakeibooPc/check_off.png")">
+            <span class="sam-calc-all-text">全て選択</span>
+          </label>
+        </div>
+      </div>
+      <!-- メインエリア -->
+      <div class="sam-calc-main-area">
+        <ul class="sam-calc-ul">
+          <!-- カテゴリー一覧 -->
+        </ul>
+      </div>
+      <!-- フッターエリア -->
+      <div class="sam-calc-footer-area">
+        <p id="sam-calc-message" class="sam-calc-message"></p>
+        <div>
+          <button id="close-btn" class="modal-close-btn">閉じる</button>
+          <button id="sam-calc-output-btn" class="modal-btn">出力</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <div id="kakeibo-page">
+    <!-- トップエリア -->
+    <div class="top-area">
+      <ul class="top-list">
+        <!-- 検索エリア -->
+        <li class="search-area">
+          <div class="area-title"> - 検索 - </div>
+          <div class="search-block">
+            <select name="year" id="year" class="year">
+              @for(i <- 2015 to 2100){
+                <option value="@i">@i</option>
+              }
+            </select>
+            <span>年</span>
+            <button id="search-btn" class="search-btn">検索</button>
+          </div>
+        </li>
+        <!-- 編集エリア -->
+        <li class="edit-area">
+          <div class="area-title"> - 編集 - </div>
+          <div class="edit-block">
+            <button id="sum-calc-btn" class="sum-calc-btn">項目合計算出</button>
+            <button id="clear-btn" class="clear-btn">選択した項目をクリア</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- 家計簿エリア -->
+    <div class="kakeibo-frame">
+      <div class="kakeibo-all-check-block">
+        <label class="kakeibo-all-label">
+          <input type="checkbox" class="kakeibo-all-check" name="kakeibo-all-check" onchange="allCheckIconChange()" value="">
+          <img id="kakeibo-all-icon-on" src="@routes.Assets.versioned("images/kakeibooPc/check_on.png")">
+          <img id="kakeibo-all-icon-off" src="@routes.Assets.versioned("images/kakeibooPc/check_off.png")">
+          <span class="kakeibo-all-text">全て選択</span>
+        </label>
+      </div>
+      <div id="kakeibo-title" class="kakeibo-title"></div>
+      <div class="kakeibo-area">
+        <table id="kakeibo-table" class="kakeibo-table">
+          <!-- 家計簿ヘッダー -->
+          <thead>
+            <tr>
+              <th colspan="2" class="cell-sticky-width cell-sticky-height cell-corner"><div class="cell-block"></div></th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">1月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('1')" value="">
+                    <img id="check-on-1" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-1" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">2月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('2')" value="">
+                    <img id="check-on-2" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-2" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">3月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('3')" value="">
+                    <img id="check-on-3" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-3" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">4月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('4')" value="">
+                    <img id="check-on-4" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-4" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">5月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('5')" value="">
+                    <img id="check-on-5" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-5" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">6月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('6')" value="">
+                    <img id="check-on-6" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-6" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">7月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('7')" value="">
+                    <img id="check-on-7" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-7" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">8月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('8')" value="">
+                    <img id="check-on-8" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-8" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">9月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('9')" value="">
+                    <img id="check-on-9" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-9" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">10月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('10')" value="">
+                    <img id="check-on-10" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-10" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">11月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('11')" value="">
+                    <img id="check-on-11" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-11" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+              <th class="cell-sticky-width">
+                <div class="cell-block">
+                  <label class="month-check-label">
+                    <span class="month-check-text">12月</span>
+                    <input type="checkbox" class="month-check" name="month-check" onchange="checkIconChange('12')" value="">
+                    <img id="check-on-12" class="check-on" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_on.png")">
+                    <img id="check-off-12" class="check-off" src="@routes.Assets.versioned("images/kakeibooPc/kakeibo_check_off.png")">
+                  </label>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <!-- 家計簿一覧 -->
+        </table>
+        <input type="hidden" id="designated-date" value="@designatedDate">
+      </div>
+    </div>
+    <!-- メッセージエリア -->
+    <div id="kakeibo-message" class="kakeibo-message"></div>
+    <!-- 家計簿保存ボタンエリア -->
+    <div>
+      <button id="regist-btn" class="regist-btn">保存</button>
+    </div>
+  </div>
+}

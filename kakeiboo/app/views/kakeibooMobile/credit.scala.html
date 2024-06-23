@@ -1,0 +1,58 @@
+@(title:String)
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/credit.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/credit.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooMobile(title, css, scripts, modal) {
+  <!-- クレジット利用履歴 -->
+  <div id="credit-page">
+    <div class="wrapper-area">
+      <!-- ヘッダー -->
+      <div class="credit-header">
+        <div class="header-top-block">
+          <p class="header-title"> - <span id="credit-title"></span>分 クレジット利用履歴 - </p>
+        </div>
+        <div class="header-left-block">
+          <div class="header-select">
+            <select name="year" id="year" class="year">
+              @for(i <- 2015 to 2100){
+                <option value="@i">@i</option>
+              }
+            </select>
+            <span>年</span>
+            <select name="month" id="month" class="month">
+              @for(i <- 1 to 12){
+                <option value="@i">@i</option>
+              }
+            </select>
+            <span>月</span>
+          </div>
+        </div>
+        <div class="header-right-block">
+          <div class="header-normal-fixed">
+            <button id="normal-cost-btn" class="select-btn">通常</button>
+            <span class="span">/</span>
+            <button id="fixed-cost-btn" class="select-btn">固定費</button>
+          </div>
+          <div class="header-sum-amount">
+            <span id="sum-amount"></span>円
+          </div>
+        </div>
+      </div>
+      <!-- メイン -->
+      <div class="credit-main">
+        <ul id="credit-ul" class="credit-ul">
+          <!-- クレジット利用履歴一覧 -->
+        </ul>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,33 @@
+@(title:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/setting.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/setting.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <div id="eachSetting-page">
+    <div>
+      <p class="eachSetting-title">各種設定</p>
+    </div>
+    <div class="main-area">
+      <ul class="eachSetting-ul">
+        <li id="systemPassword-page" class="eachSetting-list">
+          家計簿システムパスワード変更
+        </li>
+        <li id="category-page" class="eachSetting-list">
+          家計簿カテゴリー設定
+        </li>
+        <li id="calendarDesignatedDate-page" class="eachSetting-list">
+          カレンダー指定日変更
+        </li>
+      </ul>
+    </div>
+  </div>
+}

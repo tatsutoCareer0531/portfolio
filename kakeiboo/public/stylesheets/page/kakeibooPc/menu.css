@@ -1,0 +1,79 @@
+/* グラフ */
+.graph-area {
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.966);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+}
+.graph-title {
+  margin-top: 10px;
+  color: rgb(124, 124, 124);
+  text-align: center;
+}
+.year-select {
+  width: 80px;
+  height: 27px;
+  outline: none;
+}
+.month-select {
+  margin-left: 5px;
+  width: 50px;
+  height: 27px;
+  outline: none;
+}
+.btn-area {
+  text-align: right;
+  margin-right: 10px;
+}
+.top-btn {
+  border:none;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.span {
+  color: rgb(99, 99, 99);
+}
+.graph {
+  width:95%;
+  margin: 0 auto;
+}
+/* ニュース＆天気欄 */
+#news-area {
+  overflow: hidden;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:30px;
+  font-size:21px;
+  background-color: white;
+  border-top: 1px solid rgba(175, 173, 173, 0.466);
+}
+#news-text {
+  white-space: nowrap;
+  margin: 0 0 0 100% !important;
+}
+#weather-date {
+  margin-right:25px;
+}
+.weather {
+  margin: 0 15px;
+}
+.weather-value {
+  margin-right:10px;
+}
+.icon {
+  vertical-align:text-top;
+}
+.high-temperature {
+  color: rgb(255, 17, 0);
+}
+.low-temperature {
+  color: rgb(0, 81, 255);
+}
+.precip {
+  margin-left:10px;
+}

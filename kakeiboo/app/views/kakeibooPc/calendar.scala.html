@@ -1,0 +1,78 @@
+@(title:String, designatedDate:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/calendar.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/calendar.js")" type="text/javascript"></script>
+}
+
+@modal={
+  <!-- カレンダーモーダル -->
+  <div id="calendar-modal">
+    <!-- 内訳モーダル -->
+    <div id="uchiwake-modal" class="uchiwake-content">
+      <!-- ヘッダーエリア -->
+      <div class="uchiwake-header-area">
+        <!-- 日付 -->
+        <div id="date" class="uchiwake-date"></div>
+      </div>
+      <!-- メインエリア -->
+      <div class="uchiwake-main-area">
+        <ul class="uchiwake-ul">
+          <!-- 内訳一覧 -->
+        </ul>
+      </div>
+      <!-- フッターエリア -->
+      <div class="uchiwake-footer-area">
+        <p id="uchiwake-message" class="uchiwake-message"></p>
+        <div>
+          <button id="close" class="modal-close-btn">閉じる</button>
+          <button id="update" class="modal-btn">更新</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <!-- カレンダー -->
+  <div id="calendar-page">
+    <!-- カレンダーヘッダー -->
+    <div class="calendar-header-area">
+      <div id="calendar-title" class="calendar-title"></div>
+      <div class="regist-btn-block">
+        <button id="regist" class="regist-btn">新規登録</button>
+      </div>
+    </div>
+    <!-- カレンダーメイン -->
+    <div class="calendar-main-area">
+      <div class="calendar-header">
+        <div class="left-calendar-btn-area">
+          <button class="calendar-header-btn" onclick="selectCalendarTopBtn('yearBack')">＜＜</button>
+          <button class="calendar-header-btn" onclick="selectCalendarTopBtn('monthBack')">＜</button>
+          <button class="calendar-header-btn" onclick="selectCalendarTopBtn('monthNext')">＞</button>
+          <button class="calendar-header-btn" onclick="selectCalendarTopBtn('yearNext')">＞＞</button>
+        </div>
+        <div class="right-calendar-btn-area">
+          <button class="calendar-header-btn" onclick="selectCalendarTopBtn('today')">今日</button>
+        </div>
+      </div>
+      <table id="calendar-table" class="calendar-table">
+        <!-- 曜日 -->
+        <tr>
+          <th class="calendar-table-day calendar-day-sunday">日</th>
+          <th class="calendar-table-day calendar-day-normal">月</th>
+          <th class="calendar-table-day calendar-day-normal">火</th>
+          <th class="calendar-table-day calendar-day-normal">水</th>
+          <th class="calendar-table-day calendar-day-normal">木</th>
+          <th class="calendar-table-day calendar-day-normal">金</th>
+          <th class="calendar-table-day calendar-day-saturday">土</th>
+        </tr>
+        <!-- 日付 -->
+      </table>
+      <input type="hidden" id="designated-date" value="@designatedDate">
+    </div>
+  </div>
+}

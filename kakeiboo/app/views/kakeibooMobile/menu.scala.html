@@ -1,0 +1,23 @@
+@(title:String)
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/menu.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/menu.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooMobile(title, css, scripts, modal) {
+  <!-- メニュー -->
+  <div id="menu-page">
+    <div class="menu-area">
+      <button id="calendar-btn" class="common-btn-white calendar-btn" type="button">カレンダー</button>
+      <button id="deposit-btn" class="common-btn-white deposit-btn" type="button">貯金額確認</button>
+      <button id="credit-btn" class="common-btn-white credit-btn" type="button">クレジット利用履歴</button>
+    </div>
+  </div>
+}

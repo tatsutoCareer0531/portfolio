@@ -1,0 +1,310 @@
+/* まとめて登録モーダル */
+.sum-up-regist-modal-content {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 5px;
+}
+.sum-up-regist-modal-block {
+  margin-top: 10px;
+}
+.sum-up-regist-title {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+.sum-up-regist-file {
+  margin: 0 auto;
+}
+.sum-up-regist-modal-message {
+  width: 50%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 16px;
+  height: 25px;
+}
+.sum-up-regist-modal-message-span {
+  text-align: right;
+}
+/* まとめて登録モーダル ボタン */
+.sum-up-regist-modal-btn {
+  margin-top: 8px;
+  text-align:center;
+}
+/* まとめて登録モーダル フォーマットDL */
+.sum-up-regist-format {
+  margin-top: 11px;
+  margin-left: 10px;
+}
+.format-download {
+  cursor: pointer;
+}
+
+/* カレンダーモーダル */
+.calendar-modal-content {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 5px;
+}
+/* カレンダータイトル */
+.calendar-title {
+  color: rgb(99, 99, 99);
+  text-align: center;
+  height: 30px;
+  font-size: 23px;
+  margin-top: 10px;
+}
+/* カレンダー */
+.calendar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  margin-top:5px;
+  cursor:pointer;
+}
+/* カレンダー 文字 */
+.calendar-text-sunday {
+  color: rgb(230, 89, 89);
+}
+.calendar-text-saturday {
+  color: rgb(74, 150, 238);
+}
+.calendar-text-normal {
+  color: rgb(110, 110, 110);
+}
+/* カレンダー 背景 */
+.calendar-back-header {
+  background: rgb(245, 245, 245);
+}
+.calendar-back-sunday {
+  background: rgb(255, 240, 240);
+  cursor: pointer;
+}
+.calendar-back-saturday {
+  background: rgb(237, 248, 255);
+  cursor: pointer;
+}
+.calendar-back-normal {
+  background: white;
+  cursor: pointer;
+}
+.calendar-back-today {
+  background: rgb(255, 223, 187);
+  cursor: pointer;
+}
+.calendar-back-sunday:hover, 
+.calendar-back-saturday:hover, 
+.calendar-back-normal:hover, 
+.calendar-back-today:hover {
+  background: rgb(255, 237, 186);
+}
+/* カレンダー リンク */
+.calendar-link-none {
+  pointer-events: none;
+}
+
+/* 入力欄 */
+.calendar-input {
+  margin-top:20px;
+  text-align: center;
+}
+.modal-text {
+  font-size:17px;
+}
+.modal-input {
+  font-size:17px;
+  text-align: center;
+  width: 150px;
+  height: 32px;
+  outline:none;
+}
+/* カレンダーモーダル ボタン */
+.calendar-btn {
+  margin-top: 25px;
+  text-align: center;
+}
+
+/* カテゴリーモーダル */
+.category-modal-content {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 5px;
+}
+.category-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.category-list {
+  width: 100%;
+  height: 80.5%;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.category-input  {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 38px;
+  font-size: 17px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+.spend-name {
+  border: 1px solid rgb(255, 100, 100);
+}
+.income-name {
+  border: 1px solid rgb(119, 167, 255);
+}
+.category-select-block {
+  margin-top:20px;
+  text-align: center;
+}
+.category-select-text {
+  font-size:17px;
+}
+.category-select-input {
+  font-size:17px;
+  text-align: center;
+  width: 300px;
+  height: 32px;
+  outline:none;
+}
+/* カテゴリーモーダル ボタン */
+.category-btn {
+  margin-top: 13px;
+  text-align: center;
+}
+
+/* 収支選択 */
+.top-area {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 70%;
+  height: 60px;
+}
+.back-btn-block {
+  position: absolute;
+  bottom: 0;
+}
+.spend-income-btn-block {
+  text-align: center;
+  font-size: 28px;
+}
+.spend-income-btn {
+  border:none;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.span {
+  color: rgb(99, 99, 99);
+}
+.sum-up-regist-btn-block {
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+.header-btn {
+  background-color: rgb(255, 255, 255);
+  color: rgba(31, 136, 197, 0.973);
+  border:1px solid rgba(31, 136, 197, 0.973);
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 4px 14px;
+}
+
+/* 入力欄 */
+.input-area {
+  margin: auto;
+  width: 70%;
+  background-color: white;
+  border: 2px solid rgb(219,219,219);
+  border-radius: 5px;
+}
+.input-ul {
+  list-style: none;
+  padding: 0;
+}
+.input-list {
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+  color: rgb(99, 99, 99);
+}
+.mode-title {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 105px;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 2px;
+}
+.mode-title-spend {
+  color: rgb(255, 100, 100);
+}
+.mode-title-income {
+  color: rgb(119, 167, 255);
+}
+.input-value-calendar {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+  font-size: 20px;
+  outline:none;
+}
+.input-value {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+  font-size: 20px;
+  outline:none;
+}
+#date, #category{
+  cursor:pointer;
+}
+.message {
+  font-weight: bold;
+  font-size: 18px;
+  height: 30px;
+  margin-top: 20px;
+}
+.regist-btn {
+  margin-left:auto;
+  margin-right:auto;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+}
+.regist-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}

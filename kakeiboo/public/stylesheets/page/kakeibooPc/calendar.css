@@ -1,0 +1,266 @@
+/* モーダル コンテンツ */
+.uchiwake-content {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 7px;
+}
+/* ヘッダーエリア */
+.uchiwake-header-area {
+  width:100%;
+  height: 6%;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.uchiwake-date {
+  margin-top:10px;
+  text-align: center;
+  font-size:25px;
+}
+/* メインエリア */
+.uchiwake-main-area {
+  width: 100%;
+  height: 81%;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.uchiwake-ul {
+  list-style: none;
+  padding:0;
+}
+/* 内訳一覧 */
+.uchiwake-li {
+  width: 80%;
+  margin: 10px auto;
+}
+.uchiwake-list-block {
+  display: inline-block;
+  width: 90%;
+  margin-left: 20px;
+  padding: 4px 0;
+  border-radius: 4px;
+}
+.uchiwake-list-name {
+  display: inline-block;
+  width: 56%;
+  margin-top: 1px;
+  margin-left: 10px;
+  font-size: 18px;
+  vertical-align: top;
+}
+.uchiwake-list-amount {
+  display: inline-block;
+  width: 39.2%;
+  margin-top: 1px;
+  text-align: right;
+  vertical-align: top;
+}
+.amount-input {
+  outline:none;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+}
+.uchiwake-list-memo {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.memo-span {
+  vertical-align: bottom;
+}
+.memo-input {
+  outline:none;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+}
+.uchiwake-delete-block {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 7px;
+  padding: 12px 0;
+}
+.uchiwake-delete-check {
+  display: none;
+}
+.uchiwake-delete-icon {
+  cursor: pointer;
+}
+.uchiwake-delete-check-on {
+  display: none;
+}
+/* フッターエリア */
+.uchiwake-footer-area {
+  width: 100%;
+  height: 13%;
+  text-align: center;
+}
+.uchiwake-message {
+  margin-top: 3px;
+  margin-left: 15px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* カレンダーヘッダー */
+.calendar-header-area {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width:90%;
+  height: 50px;
+}
+.calendar-title {
+  text-align: center;
+  font-size: 30px;
+}
+.regist-btn-block {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.regist-btn {
+  background-color:transparent;
+  color:  rgba(31, 136, 197, 0.973);
+  font-size: 16px;
+  border:none;
+  padding: 4px 10px;
+}
+/* カレンダーメイン */
+.calendar-main-area {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width:90%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+  border-radius: 5px;
+}
+.calendar-header {
+  margin-top: 15px;
+  text-align: center;
+}
+.right-calendar-btn-area {
+  display: inline-block;
+  text-align: right;
+}
+.left-calendar-btn-area {
+  display: inline-block;  
+  text-align: left;
+}
+.calendar-header-btn {
+  background-color: rgba(255, 255, 255);
+  color: rgb(110, 110, 110);
+  border:1.3px solid rgb(175, 175, 175);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+.calendar-header-btn:hover {
+  background-color: rgb(240, 240, 240);
+}
+.calendar-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  background: rgb(255, 255, 255);
+  border-collapse:collapse;
+}
+.calendar-table-day {
+  border:1.1px solid rgb(221, 221, 221);
+  background: rgb(245, 245, 245);
+  font-size: 16px;
+  text-align: center;
+}
+.calendar-table-date {
+  border:1.1px solid rgb(221, 221, 221);
+  font-size: 17px;
+  vertical-align: text-top;
+  text-align: right;
+}
+.calendar-date-number {
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+/* 背景 */
+.calendar-bg-today {
+  background: rgb(255, 223, 187);
+  cursor: pointer;
+}
+.calendar-bg-sunday {
+  background: rgb(255, 240, 240);
+  cursor: pointer;
+}
+.calendar-bg-saturday {
+  background: rgb(237, 248, 255);
+  cursor: pointer;
+}
+.calendar-bg-normal {
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.calendar-bg-today:hover,
+.calendar-bg-sunday:hover, 
+.calendar-bg-saturday:hover, 
+.calendar-bg-normal:hover {
+  background: rgb(255, 237, 186);
+}
+
+/* 文字色 (指定年月) */
+.calendar-font-sunday {
+  color: rgb(230, 89, 89);
+}
+.calendar-font-saturday {
+  color: rgb(74, 150, 238);
+}
+.calendar-font-normal {
+  color: rgb(110, 110, 110);
+}
+
+/* 文字色 (指定年月以外) */
+.calendar-disabled-sunday {
+  background: rgb(255, 240, 240);
+  color: rgb(255, 205, 205);
+}
+.calendar-disabled-saturday {
+  background: rgb(237, 248, 255);
+  color: rgb(195, 223, 251);
+}
+.calendar-disabled-normal {
+  background: rgb(255, 255, 255);
+  color: rgb(225, 225, 225);
+}
+
+/* カレンダーの各日に表示する内訳 */
+.calendar-uchiwake-block {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.calendar-uchiwake-income {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  height: 22px;
+  margin-bottom: 2.5px;
+  background:rgb(119, 167, 255);
+  border:1.2px solid rgb(119, 167, 255);
+  border-radius: 3px;
+}
+.calendar-uchiwake-spend {
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  height: 22px;
+  background:rgb(255, 100, 100);
+  border:1.2px solid rgb(255, 100, 100);
+  border-radius: 3px;
+}

@@ -1,0 +1,10 @@
+{
+  "id" : "アプリ用ID",
+  "password" : "アプリ用パスワード",
+  "db": {
+    "user": "ユーザ",
+    "password": "DB用パスワード",
+    "host": "localhost",
+    "database": "データベース"
+  }
+}

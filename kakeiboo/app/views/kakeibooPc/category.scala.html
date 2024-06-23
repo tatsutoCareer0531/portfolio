@@ -1,0 +1,49 @@
+@(title:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/category.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/category.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <div id="eachSettingCategory-page">
+    <div class="wrapper-area">
+      <p class="eachSettingSystemPW-title">家計簿カテゴリー設定</p>
+      <div class="main-area">
+        <div class="category-header">
+          <div class="add-btn-area">
+            <button id="add-btn" class="add-btn">新規追加</button>
+          </div>
+          <div class="select-btn-area">
+            <button id="spend-btn" class="select-btn">支出</button>
+            <span class="span">/</span>
+            <button id="income-btn" class="select-btn">収入</button>
+          </div>
+        </div>
+        <div class="category-block">
+          <ul id="categorySpend" class="category-ul">
+          </ul>
+          <ul id="categoryIncome" class="category-ul">
+          </ul>
+        </div>
+        <div class="message-btn-block">
+          <p id="message-text" class="message-text"></p>
+          <div class="category-btn-area">
+            <div class="category-btn-block">
+              <button id="back-btn" class="back-btn">戻る</button>
+            </div>
+            <div class="category-btn-block">
+              <button id="update-btn" class="update-btn">更新</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

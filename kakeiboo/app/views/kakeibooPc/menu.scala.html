@@ -1,0 +1,121 @@
+@(title:String, menuBean:models.bean.kakeibooPc.MenuBean)
+@import models.common.kakeibooPc.ConstNewsWeather
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/menu.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/menu.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <!-- メニュー -->
+  <div id="menu-page">
+    <!-- グラフ -->
+    <div class="graph-area">
+      <div class="graph-title">
+        <select name="year-select" id="year-select" class="year-select">
+          @for(i <- 2015 to 2100){
+            <option value="@i">@i</option>
+          }
+        </select>
+        <span>年</span>
+        <select name="month-select" id="month-select" class="month-select">
+          @for(i <- 1 to 12){
+            @if(i < 10) {
+              <option value="@i">0@i</option>
+            } else {
+              <option value="@i">@i</option>
+            }
+          }
+        </select>
+        <span>月分</span>
+      </div>
+      <div class="btn-area">
+        <button id="spend" class="top-btn">支出</button>
+        <label class="span">/</label>
+        <button id="income" class="top-btn">収入</button>  
+      </div>
+      <div class="graph">
+        <canvas id="bar-graph" width="0" height="0"></canvas>
+      </div>
+    </div>
+    <!-- ニュース＆天気欄 -->
+    <div id="news-area">
+      <p id="news-text">
+        <!-- ニュース -->
+        Yahoo!ニュース<span>　　</span>
+        @for(newsBean <- menuBean.getNewsList()) {
+          @newsBean.getInfo()<span>　　</span>
+        }
+        <!-- 天気 -->
+        <span id="weather-date"></span>
+        @for(weatherBean <- menuBean.getWeatherList()) {
+          <span class="weather">
+            <span class="weather-value">@weatherBean.getPlace()</span>
+            <span>@weatherBean.getStatus()</span>
+            <span class="weather-value">@weatherIconSetting(weatherBean.getIconNumber(), weatherBean.getRiseSetFlg())</span>
+            <span class="high-temperature">@weatherBean.getHighTemp()</span> / <span class="low-temperature">@weatherBean.getLowTemp()</span>
+            <span class="precip">@weatherBean.getPrecip()</span>
+          </span>
+        }
+      </p>
+    </div>
+    <input type="hidden" id="designated-date" value="@menuBean.getDesignatedDate()">
+    @if(menuBean.getNewsList().length > 0) {
+      <input type="hidden" id="news-info" value="@menuBean.getNewsList()(0).getNewsLength()">
+    } else {
+      <input type="hidden" id="news-info" value="0">
+    }
+  </div>
+}
+
+@weatherIconSetting(iconNumber:Integer, sunRiseSetFlg:String) = {
+  @if(sunRiseSetFlg == ConstNewsWeather.SUN_FLG_RISE) {
+    <!-- 昼 -->
+    @if(iconNumber == ConstNewsWeather.ICON_SUNNY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/sunny.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_RAIN) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/rain.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_SNOW) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/snow.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_SUNNY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_sunny.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_RAIN) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_rain.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_SNOW) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_snow.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_STORM) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/storm.png")" class="icon">
+    } else {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/question.png")" class="icon">
+    }
+  } else {
+    <!-- 夜 -->
+    @if(iconNumber == ConstNewsWeather.ICON_SUNNY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/moon.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_RAIN) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/rain.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_SNOW) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/snow.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_SUNNY) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_moon.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_RAIN) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_rain.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_CLOUDY_SNOW) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/cloudy_snow.png")" class="icon">
+    } else if(iconNumber == ConstNewsWeather.ICON_STORM) {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/storm.png")" class="icon">
+    } else {
+      <img src="@routes.Assets.versioned("images/kakeibooPc/question.png")" class="icon">
+    }
+  }
+}

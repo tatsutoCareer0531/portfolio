@@ -1,0 +1,144 @@
+@(title:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/simulation.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/simulation.js")" type="text/javascript"></script>
+}
+
+@modal={
+  <!-- シミュレーションモーダル -->
+  <div id="simulation-modal">
+    <div class="modal-content">
+      <!-- タイトル -->
+      <div class="modal-title-area">- シミュレーション -</div>
+      <!-- メイン -->
+      <div class="modal-main-area">
+        <!-- 貯金額 -->
+        <div class="deposit-block">
+          <div class="difference-top">
+            <p class="difference-text">差額 : </p><p class="difference-amount-text"><span class="difference-amount"></span>円</p>
+          </div>
+          <div class="deposit-left">
+            <span>貯金額 : </span>
+            <input
+              id="deposit"
+              class="deposit-input"
+              placeholder="金額"
+              value=""
+              onfocus="depositFocusOn()"
+              onblur="depositFocusOut()"
+            >円
+            <button id="setting-btn" class="setting-btn">設定</button>
+          </div>
+          <div class="select-right">
+            <button id="month-btn" class="select-btn">1ヵ月単位</button>
+            <label class="span">/</label>
+            <button id="year-btn" class="select-btn">1年単位</button>
+          </div>
+        </div>
+        <!-- グラフ -->
+        <div class="graph-block">
+          <canvas id="graph" width="300" height="155"></canvas>
+        </div>
+      </div>
+      <!-- ボタン -->
+      <div class="modal-btn-area">
+        <button class="modal-close-btn" id="close">閉じる</button>
+      </div>
+    </div>
+  </div>
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <div id="simulation-page">
+    <div class="wrapper-area">
+      <div class="header-area">
+        <div class="explanation-block">収支それぞれのカテゴリーと金額欄を入力して下さい。</div>
+        <div class="regist-delete-block">
+          <button id="delete-btn" class="delete-btn">削除</button>
+          <label class="header-span">/</label>
+          <button id="regist-btn"  class="regist-btn">保存</button>
+        </div>
+      </div>
+      <div class="main-area">
+        <div class="income-title-block">収入</div>
+        <div class="income-main-block">
+          <ul class="category-ul">
+            <li class="category-li category-li-income">
+              <div class="category-li-left">
+                <input id="category-income-1" class="category" placeholder="カテゴリー" value="">
+                <span class="category-span">:</span>
+              </div>
+              <div class="category-li-right">
+                <input
+                  id="amount-income-1"
+                  class="amount"
+                  placeholder="金額"
+                  value=""
+                  onfocus="amountFocusOn('amount-income-1')"
+                  onblur="amountFocusOut('amount-income-1')"
+                >
+                <span class="amount-span">円</span>
+              </div>
+            </li>
+            <li id="category-li-income" class="category-li">
+              <div class="category-li-add-btn">
+                <button id="income-add-btn" class="add-btn">追加</button>
+              </div>
+            </li>
+            <li class="category-li">
+              <div class="category-li-sum">
+                <div class="category-li-sum-left">合計 : </div>
+                <div class="category-li-sum-right"><span id="income-sum-amount"></span>円</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="spend-title-block">支出</div>
+        <div class="spend-main-block">
+          <ul class="category-ul">
+            <li class="category-li category-li-spend">
+              <div class="category-li-left">
+                <input id="category-spend-1" class="category" placeholder="カテゴリー" value="">
+                <span class="category-span">:</span>
+              </div>
+              <div class="category-li-right">
+                <input
+                  id="amount-spend-1"
+                  class="amount"
+                  placeholder="金額"
+                  value=""
+                  onfocus="amountFocusOn('amount-spend-1')"
+                  onblur="amountFocusOut('amount-spend-1')"
+                >
+                <span class="amount-span">円</span>
+              </div>
+            </li>
+            <li id="category-li-spend" class="category-li">
+              <div class="category-li-add-btn">
+                <button id="spend-add-btn" class="add-btn">追加</button>
+              </div>
+            </li>
+            <li class="category-li">
+              <div class="category-li-sum">
+                <div class="category-li-sum-left">合計 : </div>
+                <div class="category-li-sum-right"><span id="spend-sum-amount"></span>円</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="difference-area">
+        <div class="difference-left">差額 : </div>
+        <div class="difference-right"><span class="difference-amount"></span>円</div>
+      </div>
+      <div class="message-area"></div>
+      <div class="btn-area">
+        <button id="simulation-btn" class="simulation-btn">シミュレーション</button>
+      </div>
+    </div>
+  </div>
+}

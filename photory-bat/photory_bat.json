@@ -1,0 +1,8 @@
+{
+  "db": {
+    "user": "ユーザ",
+    "password": "パスワード",
+    "host": "localhost",
+    "database": "データベース"
+  }
+}

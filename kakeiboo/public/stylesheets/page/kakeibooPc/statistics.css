@@ -1,0 +1,153 @@
+/* 共通 */
+.select-btn {
+  border:none;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.span {
+  color: rgb(99, 99, 99);
+}
+
+/* モーダル コンテンツ */
+.search-menu-content {
+  width :30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 7px;
+}
+/* メインエリア */
+.search-menu-main-area {
+  width: 100%;
+  height: 80%;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.search-menu-title {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+.search-menu-ul {
+  list-style: none;
+  padding:0;
+}
+.search-menu-ul li {
+  margin-bottom: 10%;
+  margin-left: 30px;
+}
+.circle-bar-btn-li {
+  margin-top: 5%;
+}
+.year-month-select-block {
+  font-size: 18px;
+}
+.year-select {
+  width: 100px;
+  height: 25px;
+  outline: none;
+}
+.month-select {
+  margin-left: 5px;
+  width: 50px;
+  height: 25px;
+  outline: none;
+}
+.category-select-block {
+  font-size: 18px;
+}
+.category-select {
+  width: 60%;
+  height: 25px;
+  outline: none;
+}
+/* フッターエリア */
+.search-menu-footer-area {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+/* トップエリア */
+.top-area {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom:20px;
+  margin-right:auto;
+  margin-left:auto;
+  width:90%;
+  height: 80px;
+}
+/* 検索エリア */
+.search-area {
+  position: absolute;
+  left:0;
+  width: 48%;
+  height: 80px;
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+  border-radius: 5px;
+  text-align: center;
+}
+.area-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+/* 支出/収入選択エリア */
+.search-left-area {
+  display: inline-block;
+  width: 49%;
+  text-align: left;
+}
+/* 支出/収入 */
+.spend-income-block {
+  margin-left: 30px;
+}
+/* 検索メニューエリア */
+.search-right-area {
+  display: inline-block;
+  width: 49%;
+  text-align: right;
+}
+/* 検索メニュー */
+.search-menu-block {
+  margin-right: 30px;
+}
+.search-menu-btn {
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255);
+  color: rgba(31, 136, 197, 0.973);
+  border: 1px solid rgba(31, 136, 197, 0.973);
+  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+/* グラフエリア */
+.graph-area {
+  position: relative;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+  border-radius: 5px;
+}
+/* 日付 */
+.date-area {
+  margin-top:10px;
+  text-align: center;
+  font-size:25px;
+}
+.circle-graph-block {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bar-graph-block {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+}

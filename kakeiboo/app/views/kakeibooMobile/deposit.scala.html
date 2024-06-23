@@ -1,0 +1,53 @@
+@(title:String, mufjDepositData:String)
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/deposit.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/deposit.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooMobile(title, css, scripts, modal) {
+  <!-- 貯金額確認 -->
+  <div id="deposit-page">
+    <div class="wrapper-area">
+      <!-- ヘッダー -->
+      <div class="deposit-header">
+        <div class="header-top-block">
+          <p class="header-title"> - <span id="deposit-title"></span> 貯金額 - </p>
+        </div>
+        <div class="header-bottom-block">
+          <select name="year" id="year" class="year">
+            @for(i <- 2015 to 2100){
+              <option value="@i">@i</option>
+            }
+          </select>
+          <span>年</span>
+        </div>
+      </div>
+      <!-- メイン -->
+      <div class="deposit-main">
+        <div class="deposit-amount-area">
+          <p class="year-month-block"><span id="deposit-year"></span>年<span id="deposit-month"></span>月時点</p>
+          <div class="higashi-block">
+            <p class="deposit-amount-text">東日本銀行 貯金額 : </p>
+            <p id="deposit-amount" class="deposit-amount"></p>
+          </div>
+          <div class="mufj-block">
+            <p class="deposit-amount-text">三菱UFJ銀行 預金額 : </p>
+            <p class="deposit-amount"><span>@mufjDepositData</span>円</p>
+          </div>
+        </div>
+        <div class="deposit-graph-area">
+          <div class="graph-area">
+            <canvas id="graph" width="1" height="1"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

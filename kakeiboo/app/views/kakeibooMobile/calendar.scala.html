@@ -1,0 +1,138 @@
+@(title:String, categoryList:List[models.bean.kakeibooMobile.CategoryBean])
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/calendar.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/calendar.js")" type="text/javascript"></script>
+}
+
+@modal={
+  <!-- カレンダーモーダル -->
+  <div id="calendar-modal">
+    <!-- 登録/更新モーダル -->
+    <div id="regist-update-modal" class="modal-content">
+      <!-- メインエリア -->
+      <div class="regist-update-main-area">
+        <div class="title-block">
+          - <span id="modal-title"></span> -
+        </div>
+        <div class="btn-block">
+          <div class="spend-income-block">
+            <button id="spend" class="spend-income-btn" onclick="changeSpendIncome('spend')">支出</button>
+            <span class="span">/</span>
+            <button id="income" class="spend-income-btn" onclick="changeSpendIncome('income')">収入</button>
+          </div>
+          <div class="delete-block">
+            <button id="delete" class="delete-btn">削除</button>
+          </div>
+        </div>
+        <div class="date-block">
+          <select name="year" id="year" class="year">
+            <!-- 年 -->
+            @for(i <- 2015 to 2100){
+              <option value="@i">@i</option>
+            }
+          </select>
+          <span>年</span>
+          <select name="month" id="month" class="month">
+            <!-- 月 -->
+            @for(i <- 1 to 12){
+              <option value="@i">@i</option>
+            }
+          </select>
+          <span>月</span>
+          <select name="date" id="date" class="date">
+            <!-- 日 -->
+          </select>
+          <span>日</span>
+        </div>
+        <div class="amount-block">
+          <input
+            id="amount"
+            class="modal-input"
+            type="text"
+            name="amount"
+            placeholder="金額"
+            autocomplete="off"
+            onfocus="amountFocusOn()"
+            onblur="amountFocusOut()"
+          >
+        </div>
+        <div class="category-block">
+          <!-- iosで画面表示すると、optionタグにhideとshowが効かなかったので以下のように収支で分けてタグを作成することになった -->
+          <!-- カテゴリー(支出) -->
+          <select name="category-spend" id="category-spend" class="modal-input">
+            <option value="">カテゴリー</option>
+            @for(value <- categoryList) {
+              @if(value.getIeFlg == "0") {
+                <option value="@value.getIeFlg()-@value.getId()">@value.getName()</option>
+              }
+            }
+          </select>
+          <!-- カテゴリー(収入) -->
+          <select name="category-income" id="category-income" class="modal-input">
+            <option value="">カテゴリー</option>
+            @for(value <- categoryList) {
+              @if(value.getIeFlg == "1") {
+                <option value="@value.getIeFlg()-@value.getId()">@value.getName()</option>
+              }
+            }
+          </select>
+        </div>
+        <div class="memo-block">
+          <input id="memo" class="modal-input" type="text" name="memo" placeholder="メモ" autocomplete="off">
+        </div>
+        <input type="hidden" id="calendar-id" name="calendar-id" value="">
+      </div>
+      <!-- フッターエリア -->
+      <div class="regist-update-footer-area">
+        <p id="regist-update-message" class="regist-update-message"></p>
+        <div class="footer-btn-area">
+          <button id="close" class="common-btn-white modal-btn-left">閉じる</button>
+          <button id="regist" class="common-btn-blue modal-btn-right">登録</button>
+          <button id="update" class="common-btn-blue modal-btn-right">更新</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@kakeibooMobile(title, css, scripts, modal) {
+  <!-- カレンダー -->
+  <div id="calendar-page">
+    <div class="wrapper-area">
+      <!-- ヘッダー -->
+      <div class="calendar-header">
+        <div class="header-top-block">
+          <p class="header-title"> - <span id="calendar-date"></span> - </p>
+        </div>
+        <div class="header-bottom-block">
+          <div class="header-today-regist">
+            <div class="today-block">
+              <button id="today-btn" class="today-btn">今日</button>
+            </div>
+            <div class="regist-block">
+              <button id="regist-btn" class="common-btn-white regist-btn">新規登録</button>
+            </div>
+          </div>
+          <div class="header-next-back">
+            <div class="back-block">
+              <button id="date-back-btn" class="next-back-btn">＜</button>
+            </div>
+            <div class="next-block">
+              <button id="date-next-btn" class="next-back-btn">＞</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- メイン -->
+      <div class="calendar-main">
+        <ul id="calendar-ul" class="calendar-ul">
+          <!-- カレンダー一覧 -->
+        </ul>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,49 @@
+/* ボタンのON/OFFスタイル */
+.btn-style-on {
+  background-color: rgba(31, 136, 197, 0.973);
+  color: white;
+}
+.btn-style-off {
+  background-color: transparent;
+  color: rgb(99, 99, 99);
+}
+
+/* モーダル ボタン */
+.modal-btn {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  margin-left:5px;
+  margin-right:5px;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 7px;
+}
+.modal-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}
+/* モーダル 閉じるボタン */
+.modal-close-btn {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  margin-left:5px;
+  margin-right:5px;
+  font-size: 18px;
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  color: rgba(31, 136, 197, 0.973);
+  border: 1px solid rgba(31, 136, 197, 0.973);
+  border-radius: 7px;
+}
+
+/* 処理結果メッセージ */
+.message-ok {
+  color:rgb(29, 149, 196);
+}
+.message-error {
+  color:rgb(196, 29, 29);
+}

@@ -1,0 +1,37 @@
+@(title:String)
+
+@css={
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/login.css")">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/login.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooMobile(title, css, scripts, modal) {
+  <!-- ログイン -->
+  <div id="login-page">
+    <!-- 初期表示時のアニメーション -->
+    <div class="start">
+      <p><img src="@routes.Assets.versioned("images/kakeibooMobile/kakeiboo_login.png")"></p>
+      <p class="start-title"> - 家計Boo - </p> 
+    </div>
+    <!-- 入力欄 -->
+    <div class="login-area">
+      <div class="login-title">
+        <p class="title"> - 家計Boo - </p>
+      </div>
+      <div class="login-input">
+        <form id="login-form">
+          <input class="login-text login-id" type="text" name="id" placeholder="ログインID" autocomplete="off">
+          <input class="login-text" type="password" name="password" placeholder="パスワード" autocomplete="off">
+          <p class="error-message" id="error-text"></p>
+          <button class="common-btn-blue login-btn" type="submit">ログイン</button>
+        </form>
+      </div>
+    </div>
+  </div>
+}

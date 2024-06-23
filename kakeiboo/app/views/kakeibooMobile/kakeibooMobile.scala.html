@@ -1,0 +1,70 @@
+@(title: String, css: Html = Html(""), scripts: Html = Html(""), modal: Html = Html(""))(content: Html)
+@import views.html.main._
+@import models.common.kakeibooPc.ConstList
+
+@mainCss={
+  <!-- CSS定義 -->
+  <!-- common -->
+  <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/common/kakeibooMobile/common.css")">
+  <!-- kakeibooMobile -->
+  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/page/kakeibooMobile/kakeibooMobile.css")">
+  @css
+}
+
+@mainScripts={
+  <!-- javascript定義 -->
+  <!-- constList -->
+  <script src="@routes.Assets.versioned("javascripts/common/kakeibooMobile/constList.js")" type="text/javascript"></script>
+  <!-- constMethod -->
+  <script src="@routes.Assets.versioned("javascripts/common/kakeibooMobile/constMethod.js")" type="text/javascript"></script>
+  <!-- kakeibooMobile -->
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooMobile/kakeibooMobile.js")" type="text/javascript"></script>
+  @scripts
+}
+
+@main(title,mainCss,mainScripts) {
+  <!-- モバイル用表示画面 -->
+  <!-- 読み込み中画面 -->
+  <div id="loader">
+    <div class="sk-block">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+  </div>
+  @if(title != ConstList.LOGIN) {
+    <!-- コンテンツ -->
+    <div id="content" class="content">
+      <!-- メイン -->
+      <div class="main">
+        <!-- モーダル -->
+        <div id="modal" class="modal">
+          <div class="modal-bg"></div>
+          @modal
+        </div>
+        <!-- 各ページの内容 -->
+        @content
+      </div>
+      <!-- フッター -->
+      <div class="footer">
+        <div class="footer-btn-block">
+          @if(title != ConstList.MENU) {
+            <button id="back-btn" class="common-btn-white back-btn" type="button">戻る</button>
+          }
+          <button id="logout-btn" class="common-btn-white logout-btn" type="button">ログアウト</button>
+        </div>
+      </div>
+    </div>
+  } else {
+    <!-- コンテンツ -->
+    <div id="content" class="content">
+      <!-- 各ページの内容 -->
+      @content
+    </div>
+  }
+}

@@ -1,0 +1,95 @@
+/* トップエリア */
+.top-area {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom:20px;
+  margin-left:5%;
+  width:90%;
+  height: 80px;
+}
+/* 共通 */
+.top-list {
+  list-style: none;
+  padding:0;
+}
+.top-list li {
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+  border-radius: 5px;
+}
+/* 検索エリア */
+.search-area {
+  width: 30%;
+  height: 80px;
+  position:absolute;
+  left:0;
+}
+.area-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+.year {
+  margin-left: 50px;
+  width: 70px;
+  outline: none;
+}
+.search-btn {
+  background-color: rgba(31, 136, 197, 0.973);
+  color: white;
+  border:none;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+.search-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}
+/* 現在の貯金額/預金額エリア */
+.current-deposit-area {
+  width: 42%;
+  height: 105px;
+  position:absolute;
+  right:0;
+}
+.current-deposit-date {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  font-size: 15px;
+}
+.current-deposit-list {
+  margin-top: 3px;
+}
+.current-deposit-title-block {
+  display: inline-block;
+  width: 45%;
+  margin-left: 5px;
+  text-align: left;
+}
+.current-deposit-amount-block {
+  display: inline-block;
+  width: 50%;
+  margin-right: 5px;
+  text-align: right;
+}
+/* グラフエリア */
+.deposit-graph-area {
+  position: relative;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width:90%;
+  background-color: rgba(255, 255, 255);
+  border: 1px solid rgba(175, 173, 173, 0.911);
+  border-radius: 5px;
+}
+.date-area {
+  margin-top:10px;
+  text-align: center;
+  font-size:25px;
+}
+.graph-area {
+  width:95%;
+  margin: 0 auto;
+}

@@ -1,0 +1,124 @@
+@(title:String, categoryList:List[models.bean.kakeibooPc.CategoryBean])
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/statistics.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/statistics.js")" type="text/javascript"></script>
+}
+
+@modal={
+  <!-- 統計データモーダル -->
+  <div id="statistics-modal">
+    <!-- 検索メニューモーダル -->
+    <div id="search-menu-modal" class="search-menu-content">
+      <!-- メインエリア -->
+      <div class="search-menu-main-area">
+        <p class="search-menu-title"> - 検索メニュー - </p>
+        <ul class="search-menu-ul">
+          <li class="circle-bar-btn-li">
+            <div class="circle-bar-btn-block">
+              <button id="circle-btn" class="select-btn">円グラフ</button>
+              <label class="span">/</label>
+              <button id="bar-btn" class="select-btn">棒グラフ</button>
+            </div>
+          </li>
+          <li>
+            <div class="year-month-btn-block">
+              <button id="month-btn" class="select-btn">月間</button>
+              <label class="span">/</label>
+              <button id="year-btn" class="select-btn">年間</button>
+            </div>
+          </li>
+          <li>
+            <div class="year-month-select-block">
+              <select name="year-select" id="year-select" class="year-select">
+                @for(i <- 2015 to 2100){
+                  <option value="@i">@i</option>
+                }
+              </select>
+              <span>年</span>
+              <select name="month-select" id="month-select" class="month-select">
+                @for(i <- 1 to 12){
+                  @if(i < 10) {
+                    <option value="@i">0@i</option>
+                  } else {
+                    <option value="@i">@i</option>
+                  }
+                }
+              </select>
+              <span>月</span>
+            </div>
+          </li>
+          <li>
+            <div class="category-select-block">
+              <span>カテゴリー : </span>
+              <select name="category-select" id="category-select" class="category-select">
+                <option value="">全て選択</option>
+                @for(value <- categoryList) {
+                  <option value="@value.getIeFlg()-@value.getId()">@value.getName()</option>
+                }
+              </select>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- フッターエリア -->
+      <div class="search-menu-footer-area">
+        <div>
+          <button id="close" class="modal-close-btn">閉じる</button>
+          <button id="search" class="modal-btn">検索</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <!-- 統計データ -->
+  <div id="statistics-page">
+    <!-- トップエリア -->
+    <div class="top-area">
+      <!-- 検索エリア -->
+      <div class="search-area">
+        <div class="area-title"> - 検索 - </div>
+        <!-- 支出/収入選択エリア -->
+        <div class="search-left-area">
+          <!-- 支出/収入 -->
+          <div class="spend-income-block">
+            <button id="spend-btn" class="select-btn">支出</button>
+            <label class="span">/</label>
+            <button id="income-btn" class="select-btn">収入</button>
+          </div>
+        </div>
+        <!-- 検索メニューエリア -->
+        <div class="search-right-area">
+          <!-- 検索メニュー -->
+          <div class="search-menu-block">
+            <button id="search-menu-btn" class="search-menu-btn">検索メニュー</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- グラフエリア -->
+    <div id="graph-area" class="graph-area">
+      <!-- 日付 -->
+      <div id="graph-date-title" class="date-area"></div>
+      <!-- 円グラフ -->
+      <div id="circle-graph-block" class="circle-graph-block">
+        <!-- 支出 -->
+        <canvas id="circle-spend-graph"></canvas>
+        <!-- 収入 -->
+        <canvas id="circle-income-graph"></canvas>
+      </div>
+      <!-- 棒グラフ -->
+      <div id="bar-graph-block" class="bar-graph-block">
+        <!-- 支出 -->
+        <canvas id="bar-spend-graph" width="0" height="0"></canvas>
+        <!-- 収入 -->
+        <canvas id="bar-income-graph" width="0" height="0"></canvas>
+      </div>
+    </div>
+  </div>
+}

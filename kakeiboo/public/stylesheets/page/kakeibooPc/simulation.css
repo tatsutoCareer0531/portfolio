@@ -1,0 +1,325 @@
+/* シミュレーションモーダル */
+.modal-content {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 5px;
+}
+.modal-title-area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.modal-main-area {
+  width: 100%;
+  height: 82%;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.deposit-block {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 25px;
+}
+.difference-top {
+  width: 90%;
+  margin-bottom: 6px;
+  text-align: left;
+}
+.difference-text {
+  display: inline-block;
+}
+.difference-amount-text {
+  display: inline-block;
+  text-align: right;
+}
+.deposit-left {
+  display: inline-block;
+  width: 65%;
+  text-align: left;
+}
+.deposit-input  {
+  width: 250px;
+  margin-right: 5px;
+  border-radius: 3px;
+  border: 1px solid rgb(99, 99, 99);
+  outline:none;
+}
+.setting-btn {
+  width: 60px;
+  height: 36px;
+  margin-left: 15px;
+  font-size: 18px;
+  text-decoration: none;
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 4px;
+}
+.setting-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}
+.select-right {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
+.select-btn {
+  width: 75px;
+  height: 30px;
+  border:none;
+  border-radius: 4px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.span {
+  color: rgb(99, 99, 99);
+  font-size: 15px;
+}
+.graph-block {
+  width:95%;
+  margin: 0 auto;
+}
+.modal-btn-area {
+  margin-top: 13px;
+  text-align: center;
+}
+
+.wrapper-area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width : 900px;
+}
+.header-area {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+}
+.explanation-block {
+  display: inline-block;
+  width: 65%;
+  text-align: left;
+}
+.regist-delete-block {
+  display: inline-block;
+  width: 34%;
+  text-align: right;
+}
+.delete-btn {
+  width: 50px;
+  height: 30px;
+  text-decoration: none;
+  background: #FFF;
+  color: rgba(197, 61, 31, 0.973);
+  border: 1px solid rgba(197, 61, 31, 0.973);
+  border-radius: 4px;
+  font-size: 16px;
+}
+.regist-btn {
+  width: 50px;
+  height: 30px;
+  text-decoration: none;
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+/* 一時的に設定 */
+/* .regist-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+} */
+.header-span {
+  font-size: 18px;
+}
+.main-area {
+  position: relative;
+  width: 90%;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255);
+  border: 2px solid rgb(219,219,219);
+  border-radius: 8px;
+}
+.income-title-block {
+  width: 100%;
+  height: 7%;
+  padding-top: 8px;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(119, 167, 255);
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.income-main-block {
+  width: 100%;
+  height: 28%;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.spend-title-block {
+  width: 100%;
+  height: 7%;
+  padding-top: 8px;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(255, 100, 100);
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px solid rgba(175, 173, 173, 0.911);
+}
+.spend-main-block {
+  width: 100%;
+  height: 58%;
+  overflow-y: auto;
+}
+.category-ul {
+  list-style: none;
+  padding:0;
+}
+.category-li {
+  position: relative;
+  width: 90%;
+  height: 70px;
+  margin: 10px auto;
+  font-size: 20px;
+}
+.category-li-left {
+  display: inline-block;
+  margin-top: 18px;
+  text-align: left;
+  width: 38%;
+}
+.category {
+  border-radius: 3px;
+  border: 1px solid rgb(99, 99, 99);
+  text-align: left;
+  outline:none;
+}
+.category-span {
+  margin-left: 10px;
+  font-size: 22px;
+}
+.category-li-right {
+  display: inline-block;
+  margin-top: 18px;
+  text-align: right;
+  width: 52%;
+}
+.amount {
+  width: 50%;
+  border-radius: 3px;
+  border: 1px solid rgb(99, 99, 99);
+  text-align: left;
+  outline:none;
+}
+.amount-span {
+  font-size: 22px;
+}
+.category-li-delete {
+  display: inline-block;
+  margin-top: 18px;
+  width: 5%;
+  text-align: center;
+  vertical-align: top;
+}
+.delete-icon {
+  cursor: pointer;
+}
+.category-li-add-btn {
+  text-align: left;
+  width: 40%;
+}
+.add-btn {
+  width: 130px;
+  height: 40px;
+  font-size: 16px;
+  text-decoration: none;
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+}
+.add-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}
+.category-li-sum {
+  width: 97%;
+  font-size: 22px;
+  border-bottom: 1px solid rgba(148, 148, 148, 0.911);
+}
+.category-li-sum-left {
+  width: 20%;
+  margin-top: 20px;
+  display: inline-block;
+  text-align: left;
+}
+.category-li-sum-right {
+  width: 78%;
+  margin-top: 20px;
+  display: inline-block;
+  text-align: right;
+}
+.difference-area {
+  width: 90%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 22px;
+  border-bottom: 1px solid rgba(148, 148, 148, 0.911);
+}
+.difference-left {
+  width: 20%;
+  display: inline-block;
+  text-align: left;
+}
+.difference-right {
+  width: 78%;
+  display: inline-block;
+  text-align: right;
+}
+.message-area {
+  width: 85%;
+  height: 24px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 17px;
+}
+.btn-area {
+  width: 85%;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.simulation-btn {
+  margin-left:auto;
+  margin-right:auto;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+}
+.simulation-btn:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}

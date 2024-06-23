@@ -1,0 +1,25 @@
+/* ボタンのスタイル */
+.common-btn-blue {
+  background: rgba(31, 136, 197, 0.973);
+  color: #FFF;
+  border: none;
+  border-radius: 7px;
+  text-decoration: none;
+}
+.common-btn-blue:hover{
+  background-color: rgba(33, 150, 218, 0.973);
+}
+.common-btn-white {
+  background-color: rgb(255, 255, 255);
+  color: rgba(31, 136, 197, 0.973);
+  border: 1px solid rgba(31, 136, 197, 0.973);
+  border-radius: 7px;
+  text-decoration: none;
+}
+/* 処理結果メッセージ */
+.message-ok {
+  color:rgb(29, 149, 196);
+}
+.message-error {
+  color:rgb(196, 29, 29);
+}

@@ -1,0 +1,60 @@
+@(title:String)
+
+@css={
+  <link href="@routes.Assets.versioned("stylesheets/page/kakeibooPc/credit.css")" rel="stylesheet" media="screen">
+}
+
+@scripts={
+  <script src="@routes.Assets.versioned("javascripts/page/kakeibooPc/credit.js")" type="text/javascript"></script>
+}
+
+@modal={
+}
+
+@kakeibooPc(title, css, scripts, modal) {
+  <!-- クレジット利用履歴 -->
+  <div id="credit-page">
+    <div class="wrapper-area">
+      <div class="credit-area">
+        <div class="header-block">
+          <div class="left-header">
+            <div class="search-block">
+              <select name="year" id="year" class="year">
+                @for(i <- 2015 to 2100){
+                  <option value="@i">@i</option>
+                }
+              </select>
+              <span>年</span>
+              <select name="month" id="month" class="month">
+                @for(i <- 1 to 12){
+                  @if(i < 10) {
+                    <option value="@i">0@i</option>
+                  } else {
+                    <option value="@i">@i</option>
+                  }
+                }
+              </select>
+              <span>月</span>
+              <button id="search-btn" class="search-btn">検索</button>
+            </div>
+          </div>
+          <div class="right-header">
+            <div class="select-btn-block">
+              <button id="normal-cost-btn" class="select-btn">通常</button>
+              <span class="span">/</span>
+              <button id="fixed-cost-btn" class="select-btn">固定費</button>
+            </div>
+            <div class="sum-amount-block">
+              合計金額 : 
+              <span id="sum-amount" class="sum-amount"></span>
+            </div>
+          </div>
+        </div>
+        <div class="main-block">
+          <ul id="credit-ul" class="credit-ul">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+}

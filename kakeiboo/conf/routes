@@ -1,0 +1,104 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+# GET   /   controllers.HomeController.index(name:java.util.Optional[String],value:java.util.Optional[String])
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                                   controllers.Assets.versioned(path="/public", file: Asset)
+
+#                 #
+# kakeibooPC      #
+#                 #
+# login
+GET     /kakeiboo/login                                 controllers.kakeibooPc.LoginController.login()
+GET     /                                               controllers.kakeibooPc.LoginController.redirectTop()
+GET     /kakeiboo                                       controllers.kakeibooPc.LoginController.redirectTop()
+GET     /kakeiboo/                                      controllers.kakeibooPc.LoginController.redirectTop()
+POST    /loginCheck                                     controllers.kakeibooPc.LoginController.loginCheck()
+
+# menu
+GET     /kakeiboo/menu                                  controllers.kakeibooPc.MenuController.menu()
+POST    /graphList                                      controllers.kakeibooPc.MenuController.getGraphList()
+
+# calendar
+GET     /kakeiboo/calendar                              controllers.kakeibooPc.CalendarController.calendar()
+POST    /calendarList                                   controllers.kakeibooPc.CalendarController.getCalendarList()
+POST    /calendarUpdate                                 controllers.kakeibooPc.CalendarController.calendarUpdate()
+
+# calendarRegist
+GET     /kakeiboo/calendar/calendarRegist               controllers.kakeibooPc.CalendarRegistController.calendarRegist()
+POST    /calendarDataRegist                             controllers.kakeibooPc.CalendarRegistController.calendarDataRegist()
+POST    /formatDownload                                 controllers.kakeibooPc.CalendarRegistController.formatDownload()
+
+# kakeibo
+GET     /kakeiboo/kakeibo                               controllers.kakeibooPc.KakeiboController.kakeibo()
+POST    /kakeiboList                                    controllers.kakeibooPc.KakeiboController.getKakeiboList()
+POST    /categorySumList                                controllers.kakeibooPc.KakeiboController.getCategorySumList()
+POST    /kakeiboRegist                                  controllers.kakeibooPc.KakeiboController.kakeiboRegist()
+
+# statistics
+GET     /kakeiboo/statistics                            controllers.kakeibooPc.StatisticsController.statistics()
+POST    /statisticsList                                 controllers.kakeibooPc.StatisticsController.getStatisticsList()
+
+# deposit
+GET     /kakeiboo/deposit                               controllers.kakeibooPc.DepositController.deposit()
+POST    /higashiDepositList                             controllers.kakeibooPc.DepositController.getHigashiDepositList()
+
+# credit
+GET     /kakeiboo/credit                                controllers.kakeibooPc.CreditController.credit()
+POST    /creditList                                     controllers.kakeibooPc.CreditController.getCreditList()
+
+# simulation
+GET     /kakeiboo/simulation                            controllers.kakeibooPc.SimulationController.simulation()
+
+# setting
+GET     /kakeiboo/setting                               controllers.kakeibooPc.SettingController.setting()
+
+# setting/systemPassword
+GET     /kakeiboo/setting/systemPassword                controllers.kakeibooPc.SystemPasswordController.systemPassword()
+POST    /systemPasswordBeforeCheck                      controllers.kakeibooPc.SystemPasswordController.systemPasswordBeforeCheck()
+POST    /systemPasswordChange                           controllers.kakeibooPc.SystemPasswordController.systemPasswordChange()
+
+# setting/category
+GET     /kakeiboo/setting/category                      controllers.kakeibooPc.CategoryController.category()
+POST    /settingCategory                                controllers.kakeibooPc.CategoryController.getSettingCategory()
+POST    /categoryUpdate                                 controllers.kakeibooPc.CategoryController.categoryUpdate()
+
+# setting/calendarDesignatedDate
+GET     /kakeiboo/setting/calendarDesignatedDate        controllers.kakeibooPc.CalendarDesignatedDateController.calendarDesignatedDate()
+POST    /calendarDesignatedDateChange                   controllers.kakeibooPc.CalendarDesignatedDateController.calendarDesignatedDateChange()
+
+
+#                 #
+# kakeibooMobile  #
+#                 #
+# login
+GET     /kakeibooMobile/login                           controllers.kakeibooMobile.LoginController.login()
+GET     /kakeibooMobile                                 controllers.kakeibooMobile.LoginController.redirectTop()
+GET     /kakeibooMobile/                                controllers.kakeibooMobile.LoginController.redirectTop()
+POST    /kakeibooMobile/loginCheck                      controllers.kakeibooMobile.LoginController.loginCheck()
+
+# menu
+GET     /kakeibooMobile/menu                            controllers.kakeibooMobile.MenuController.menu()
+
+# calendar
+GET     /kakeibooMobile/calendar                        controllers.kakeibooMobile.CalendarController.calendar()
+POST    /kakeibooMobile/calendarList                    controllers.kakeibooMobile.CalendarController.getCalendarList()
+POST    /kakeibooMobile/calendarRegist                  controllers.kakeibooMobile.CalendarController.calendarRegist()
+
+# deposit
+GET     /kakeibooMobile/deposit                         controllers.kakeibooMobile.DepositController.deposit()
+POST    /kakeibooMobile/higashiDepositList              controllers.kakeibooMobile.DepositController.getHigashiDepositList()
+
+# credit
+GET     /kakeibooMobile/credit                          controllers.kakeibooMobile.CreditController.credit()
+POST    /kakeibooMobile/creditList                      controllers.kakeibooMobile.CreditController.getCreditList()
+
+
+#                 #
+# any url request #
+#                 #
+GET     /*anyUrl                                        controllers.kakeibooPc.LoginController.redirectTopAny(anyUrl: String)
+POST    /*anyUrl                                        controllers.kakeibooPc.LoginController.redirectTopAny(anyUrl: String)
